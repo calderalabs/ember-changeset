@@ -611,13 +611,13 @@ export function changeset(
       let content: Content = get(this, CONTENT);
 
       if (typeof validator === 'function') {
-        let isValid = validator({
+        let isValid = validator(
           key,
           newValue,
           oldValue,
-          changes: get(this, 'change'),
+          get(this, 'change'),
           content,
-        });
+        );
 
         return isPresent(isValid) ? isValid : true;
       }
